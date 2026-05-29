@@ -11,21 +11,25 @@ public class TerrariumController {
 
     @PostMapping("/create")
     public dto createTerrarium(){
+        terrarium service;
         return dto;
     }
 
     @GetMapping("/{id}")
     public dto getTerrarium(){
+        terrarium service;
         return dto;
     }
 
     @PostMapping("/{id}/actions")
     public dto updateTerrarium(){
+        action service;
         return dto;
     }
 
     @GetMapping("/{id}/events")
     public dto getEvents(){
+        events service;
         return dto;
     }
 }
