@@ -1,6 +1,7 @@
 package com.thais.terrrarium_api.enums;
 
 public enum EVENTS {
+    TERRARIUM_CREATED,
     WATER_ADDED,
     LIGHT_INCREASED,
     LIGHT_DECREASED,
