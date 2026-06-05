@@ -5,6 +5,7 @@ import com.thais.terrrarium_api.entity.Organism;
 import com.thais.terrrarium_api.entity.Terrarium;
 import com.thais.terrrarium_api.enums.EVENTS;
 import com.thais.terrrarium_api.enums.SPECIES;
+import com.thais.terrrarium_api.repository.TerrariumRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,7 +14,9 @@ import static com.thais.terrrarium_api.enums.EVENTS.TERRARIUM_CREATED;
 
 public class TerrariumService {
 
-    public void createNewTerrarium(SPECIES species){
+    private TerrariumRepository terrariumRepository;
+
+    public Terrarium createNewTerrarium(SPECIES species){
         Organism organism = new Organism();
         organism.setSpecies(species);
 
@@ -28,9 +31,11 @@ public class TerrariumService {
         List<Event> terrariumEvent = terrarium.getEvents();
         terrariumEvent.add(event);
         terrarium.setEvents(terrariumEvent);
+
+        return terrarium;
     }
 
-    public getTerrariumInfo(){
-
+    public Terrarium getTerrariumInfo(Long id){
+        return terrariumRepository.findById(id);
     }
 }

@@ -4,8 +4,6 @@ import com.thais.terrrarium_api.entity.Event;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.thais.terrrarium_api.enums.EVENTS.FUNGUS_SPREAD;
-
 public class EventDescriptionFactory {
     public String generate(Event type, String organismName) {
         return switch (type.toString()) {
