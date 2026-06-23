@@ -1,11 +1,9 @@
 package com.thais.terrrarium_api.service;
 
+import com.thais.terrrarium_api.entity.Event;
 import com.thais.terrrarium_api.enums.ACTIONS;
-import com.thais.terrrarium_api.enums.EVENTS;
 
-public class ActionService {
+public interface ActionService {
 
-    public EVENTS processNewAction(ACTIONS actions) {
-        return ;
-    }
+    Event processNewAction(ACTIONS actions);
 }
