@@ -10,7 +10,7 @@ public class EventGenerator {
     public void createNewEvent(){
         Event event = new Event();
         //criacao randomica de evento
-        eventDescriptionFactory.generate(event, species);
+        //eventDescriptionFactory.generate(event, species);
         eventProcessor.salveEvent(event);
     }
 }

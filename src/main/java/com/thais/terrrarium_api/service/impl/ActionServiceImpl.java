@@ -7,6 +7,6 @@ import com.thais.terrrarium_api.service.ActionService;
 public class ActionServiceImpl implements ActionService {
 
     public Event processNewAction(ACTIONS actions) {
-        return ;
+        return null;
     }
 }
