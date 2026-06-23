@@ -18,11 +18,11 @@ public class EventProcessor {
     }
 
     public void salveEvent(Event event){
-        Terrarium terrarium = terrariumRepository.getById();
-        List<Event> terrariumEvents = terrarium.getEvents();
-        terrariumEvents.add(event);
-        terrariumRepository.save();
-        eventRepository.save(event);
+//        Terrarium terrarium = terrariumRepository.getById();
+//        List<Event> terrariumEvents = terrarium.getEvents();
+//        terrariumEvents.add(event);
+//        terrariumRepository.save();
+//        eventRepository.save(event);
     }
 
 

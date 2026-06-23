@@ -28,7 +28,7 @@ public class TerrariumServiceImpl implements TerrariumService{
                 .build();
 
         Terrarium terrarium = new Terrarium();
-        terrarium.setOrganism(organism);
+        terrarium.setMainOrganism(organism);
         List<Event> terrariumEvent = terrarium.getEvents();
         terrariumEvent.add(event);
         terrarium.setEvents(terrariumEvent);

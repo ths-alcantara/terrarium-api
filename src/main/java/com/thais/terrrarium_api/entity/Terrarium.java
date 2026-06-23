@@ -1,29 +1,33 @@
 package com.thais.terrrarium_api.entity;
 
-import com.thais.terrrarium_api.enums.SPECIES;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
+@Table(name = "tb_terrarium")
 public class Terrarium {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Organism organism;
     private Integer humidity = 50;
-    private Integer luminosity = 60;
-    private List<SPECIES> species;
-    private List<Event> events = new ArrayList<>();
 
+    private Integer luminosity = 60;
+
+    @OneToOne
+    @JoinColumn(name = "main_organism_id")
+    private Organism mainOrganism;
+
+    @OneToMany
+    @JoinColumn(name = "terrarium_id")
+    private List<Organism> organisms = new ArrayList<>();
+
+    @OneToMany(mappedBy = "terrarium")
+    private List<Event> events = new ArrayList<>();
 }
