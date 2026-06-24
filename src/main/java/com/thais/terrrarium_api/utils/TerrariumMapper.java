@@ -6,7 +6,7 @@ import com.thais.terrrarium_api.entity.Event;
 import com.thais.terrrarium_api.entity.Terrarium;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface TerrariumMapper {
 
     Terrarium dtoToEntity(TerrariumDTO terrariumDTO);

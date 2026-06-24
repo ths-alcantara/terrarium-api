@@ -17,13 +17,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/terrarium")
 public class TerrariumController {
 
-    private TerrariumService terrariumService;
-    private ActionService actionService;
-    private EventsService eventsService;
-    private TerrariumMapper mapper;
+    private final TerrariumService terrariumService;
+    private final ActionService actionService;
+    private final EventsService eventsService;
+    private final TerrariumMapper mapper;
+
+    public TerrariumController(TerrariumService terrariumService, ActionService actionService, EventsService eventsService, TerrariumMapper mapper) {
+        this.terrariumService = terrariumService;
+        this.actionService = actionService;
+        this.eventsService = eventsService;
+        this.mapper = mapper;
+    }
 
     @PostMapping("/create")
-    public ResponseEntity<TerrariumDTO> createTerrarium(@RequestHeader SPECIES species){
+    public ResponseEntity<TerrariumDTO> createTerrarium(@RequestParam SPECIES species){
         Terrarium terrariumCreated = terrariumService.createNewTerrarium(species);
         TerrariumDTO terrariumDTO = mapper.entityToDto(terrariumCreated);
         return ResponseEntity.ok().body(terrariumDTO);
@@ -37,7 +44,7 @@ public class TerrariumController {
     }
 
     @PostMapping("/{id}/actions")
-    public ResponseEntity<EventDTO> updateTerrarium(@RequestHeader ACTIONS action){
+    public ResponseEntity<EventDTO> updateTerrarium(@RequestParam ACTIONS action){
         Event event = actionService.processNewAction(action);
         EventDTO eventDTO = mapper.entityToDto(event);
         return ResponseEntity.ok().body(eventDTO);
